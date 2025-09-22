@@ -101,6 +101,8 @@ src_prepare() {
 
 	sed -i "/^bash_completion/d" tools/Makefile.am || die
 
+	sed -i "s/g_variant_builder_init_static/g_variant_builder_init/g" portal/ibus-portal-dbus.c || die
+
 	default
 	eautoreconf
 	xdg_environment_reset
@@ -174,7 +176,6 @@ src_install() {
 
 pkg_postinst() {
 	use gtk2 && gnome3_query_immodules_gtk2
-	use gtk3 && gnome3_query_immodules_gtk3
 	xdg_icon_cache_update
 	gnome3_schemas_update
 	dconf update
@@ -182,7 +183,6 @@ pkg_postinst() {
 
 pkg_postrm() {
 	use gtk2 && gnome3_query_immodules_gtk2
-	use gtk3 && gnome3_query_immodules_gtk3
 	xdg_icon_cache_update
 	gnome3_schemas_update
 }
