@@ -64,7 +64,6 @@ RDEPEND="${DEPEND}
 BDEPEND="
 	$(vala_depend)
 	dev-libs/glib:2
-	dev-util/glib-utils
 	virtual/pkgconfig
 	x11-misc/xkeyboard-config
 	emoji? (
